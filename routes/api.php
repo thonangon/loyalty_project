@@ -1,7 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\Api\OrganizationController;
+use Illuminate\Support\Facades\Request;
+
+Route::get('/user', function (Request $request) {
+    return $request->user();
+})->middleware('auth:sanctum');
 
 Route::middleware(['api', 'auth:sanctum'])->group(function () {
     Route::get('/organizations', [OrganizationController::class, 'index']);

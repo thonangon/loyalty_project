@@ -63,4 +63,11 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Organization::class);   
     }
+    /**
+     * Get the occupation that owns the user.
+     */
+    public function occupation()
+    {
+        return $this->belongsTo(Occupation::class); 
+    }
 }
