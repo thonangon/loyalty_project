@@ -12,4 +12,5 @@ class Occupation extends Model
     {
         return $this->hasMany(User::class);
     }
+    
 }

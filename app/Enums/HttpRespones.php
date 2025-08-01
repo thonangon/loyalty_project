@@ -12,6 +12,7 @@ enum HttpRespones : string
     case UNAUTHORIZED = '401 Unauthorized';
     case FORBIDDEN = '403 Forbidden';
     case NOT_FOUND = '404 Not Found';
+    case VALIDATION_ERROR = '422';
     case INTERNAL_SERVER_ERROR = '500 Internal Server Error';
     public function getMessage(): string
     {

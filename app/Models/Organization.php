@@ -19,8 +19,14 @@ class Organization extends Model
     /**
      * Get the blog posts associated with the organization.
      */
-    public function blogPosts()
-    {
-        return $this->hasMany(BlogPost::class);
+    
+    protected static function boot(){
+        parent::boot();
+        static::created(function ($organization){
+            $organization->identifier =  uniqid('ORG' . date('ymd'));
+        });
+        static::updated(function($organization){
+            $organization->identifier = uniqid('ORG'. date('ymd'));
+        });
     }
 }
